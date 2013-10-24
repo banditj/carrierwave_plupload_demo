@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @asset.name
+%p
+  %b Image:
+  = image_tag @asset.image
+%p
+  %b Gallery image:
+  = @asset.gallery_image
+%p
+  %b Video:
+  = @asset.video
+
+= link_to 'Edit', edit_asset_path(@asset)
+\|
+= link_to 'Back', assets_path

@@ -1,0 +1,22 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @page.name
+%p
+  %b background-image:
+  =image_tag @page.background_image.image.url
+%p
+  %b Images:
+  - @page.images.each do |i|
+    =image_tag i.image.url
+%p
+  %b Gallery:
+  - @page.gallery_images.each do |i|
+    =image_tag i.image.url
+
+
+
+= link_to 'Edit', edit_page_path(@page)
+\|
+= link_to 'Back', pages_path

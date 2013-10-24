@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  asset_id: 1
+  link_id: 1
+  link_type: MyString
+  usecase: MyString
+
+two:
+  asset_id: 1
+  link_id: 1
+  link_type: MyString
+  usecase: MyString
