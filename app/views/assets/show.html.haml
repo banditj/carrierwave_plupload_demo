@@ -5,13 +5,8 @@
   = @asset.name
 %p
   %b Image:
-  = image_tag @asset.image
-%p
-  %b Gallery image:
-  = @asset.gallery_image
-%p
-  %b Video:
-  = @asset.video
+  = image_tag @asset.file.url
+
 
 = link_to 'Edit', edit_asset_path(@asset)
 \|

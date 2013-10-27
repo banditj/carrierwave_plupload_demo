@@ -3,9 +3,7 @@
 %table
   %tr
     %th Name
-    %th Image
-    %th Gallery image
-    %th Video
+    %th file
     %th
     %th
     %th
@@ -13,10 +11,13 @@
   - @assets.each do |asset|
     %tr
       %td= asset.name
-      %td= asset.image
-      %td= asset.gallery_image
-      %td= asset.video
-      %td= link_to 'Show', asset
+      %td= image_tag asset.file.thumb.url
+      %td
+        %ul
+        - asset.asset_assignments.each do |n|
+          %li=n.link.name
+
+      %td= link_to 'Show', asset_path(asset)
       %td= link_to 'Edit', edit_asset_path(asset)
       %td= link_to 'Destroy', asset, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
@@ -29,7 +30,7 @@
     $(function(){
       $("#uploader").pluploadQueue({
         runtimes: 'gears,flash,silverlight,browserplus,html5',
-        url: '#{assets_path}',
+        url: '#{assets_path}?asset_type=image',
         multipart_params: {
           '#{request_forgery_protection_token}': '#{form_authenticity_token}',
           '#{Rails.application.config.session_options[:key]}': '#{request.session_options[:id]}'

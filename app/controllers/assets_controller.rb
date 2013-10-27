@@ -26,12 +26,11 @@ class AssetsController < ApplicationController
   def create
     # todo : modify Asset.new that it just takes params and works with scaffold controllers
     # virtuelle attribute die nicht in die db kommen + validations
-
     asset_type = {
         "image" => Image,
         "video" => Video
     }; asset_type = asset_type[params[:asset_type]]
-    raise "illegal asset_type" unless asset_type
+    raise "illegal asset_type:" + params[:asset_type].to_s unless asset_type
 
     @asset = asset_type.new
     @asset.file = params[:file]
@@ -86,6 +85,6 @@ class AssetsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def asset_params
       params.require(:asset).permit(:name, :image, :gallery_image, :video);
-      params.permit(:file);
+      params.permit(:file, :asset_type, :link_attr,  :link_id, :link_type);
     end
 end
