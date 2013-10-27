@@ -5,3 +5,4 @@ class Page < ActiveRecord::Base
   has_asset :video  , type: Video
 
 end
+

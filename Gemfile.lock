@@ -128,6 +128,8 @@ GEM
     turbolinks (1.3.0)
       coffee-rails
     tzinfo (0.3.38)
+    ub_assets (0.0.2)
+      rails (>= 3, < 5)
     uglifier (2.2.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
@@ -151,4 +153,5 @@ DEPENDENCIES
   sdoc
   sqlite3
   turbolinks
+  ub_assets (= 0.0.2)
   uglifier (>= 1.3.0)
