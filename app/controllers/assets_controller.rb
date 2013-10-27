@@ -35,10 +35,10 @@ class AssetsController < ApplicationController
     @asset = asset_type.new
     @asset.file = params[:file]
 
-    if params[:link_type] && params[:link_id] && params[:link_attr]
-      @asset.asset_assignments.build(link_id: params[:link_id],
-                                     link_type:params[:link_type].capitalize,
-                                     link_attr:params[:link_attr])
+    if params[:linker_type] && params[:linker_id] && params[:linker_attr]
+      @asset.asset_links.build(linker_id: params[:linker_id],
+                                     linker_type:params[:linker_type].capitalize,
+                                     linker_attr:params[:linker_attr])
     end
 
     respond_to do |format|
@@ -85,6 +85,6 @@ class AssetsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def asset_params
       params.require(:asset).permit(:name, :image, :gallery_image, :video);
-      params.permit(:file, :asset_type, :link_attr,  :link_id, :link_type);
+      params.permit(:file, :asset_type, :linker_attr,  :linker_id, :linker_type);
     end
 end

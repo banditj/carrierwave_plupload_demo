@@ -2,14 +2,14 @@ module Assetable
   extend ActiveSupport::Concern
 
   included do
-    has_many :asset_assignments, as: :link
-    has_one :asset_assignment, as: :link
+    has_many :asset_links, as: :linker
+    has_one :asset_link, as: :linker
   end
 
   module ClassMethods
 
     def has_assets(plural_name, *options)
-      has_many plural_name, -> { where "link_attr = '#{plural_name.to_s}'" },  through: :asset_assignments , :source => :asset
+      has_many plural_name, -> { where "linker_attr = '#{plural_name.to_s}'" },  through: :asset_links , :source => :asset
 
       # set method for receiving array with assets
       # assets=[array]
@@ -22,19 +22,19 @@ module Assetable
             asset = Asset.new(type:options[0][:type].to_s, file:asset)
           end
           # can assign assets
-          asset_assignments.build(asset: asset, link: self, link_attr:plural_name.to_s)
+          asset_links.build(asset: asset, linker: self, linker_attr:plural_name.to_s)
         end
       }
 
       # unlink_asset(asset)
       define_method("unlink_"+plural_name.to_s.singularize) { |asset|
-        asset_assignments.where(link_attr: plural_name.to_s.singularize, id: asset.id).delete_all
+        asset_links.where(linker_attr: plural_name.to_s.singularize, asset: asset).delete_all
       }
     end
 
     def has_asset(singular_name, *options)
 
-      has_one singular_name, -> { where "link_attr = '#{singular_name.to_s}'" },  through: :asset_assignment , :source => :asset
+      has_one singular_name, -> { where "linker_attr = '#{singular_name.to_s}'" },  through: :asset_link , :source => :asset
 
       define_method(singular_name.to_s+"=") { |asset|
         if valid?
@@ -43,8 +43,8 @@ module Assetable
             asset = Asset.new(type:options[0][:type].to_s, file:asset)
           end
 
-          asset_assignments.where(link_attr: singular_name.to_s).delete_all
-          asset_assignments.build(link_attr:singular_name.to_s, asset: asset, link: self)
+          asset_links.where(linker_attr: singular_name.to_s).delete_all
+          asset_links.build(linker_attr:singular_name.to_s, asset: asset, linker: self)
         end
       }
 

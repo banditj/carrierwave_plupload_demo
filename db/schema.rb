@@ -13,11 +13,11 @@
 
 ActiveRecord::Schema.define(version: 20131027010717) do
 
-  create_table "asset_assignments", force: true do |t|
+  create_table "asset_links", force: true do |t|
     t.integer  "asset_id"
-    t.integer  "link_id"
-    t.string   "link_type"
-    t.string   "link_attr"
+    t.integer  "linker_id"
+    t.string   "linker_type"
+    t.string   "linker_attr"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

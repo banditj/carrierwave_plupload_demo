@@ -20,7 +20,7 @@
       $(function(){
         $("#uploader").pluploadQueue({
           runtimes: 'gears,flash,silverlight,browserplus,html5',
-          url: '#{assets_path+"?link_type=page&link_id="+@page.id.to_s+"&link_attr=images&asset_type=image"}',
+          url: '#{assets_path+"?linker_type=page&linker_id="+@page.id.to_s+"&linker_attr=images&asset_type=image"}',
           multipart_params: {
             '#{request_forgery_protection_token}': '#{form_authenticity_token}',
             '#{Rails.application.config.session_options[:key]}': '#{request.session_options[:id]}'
