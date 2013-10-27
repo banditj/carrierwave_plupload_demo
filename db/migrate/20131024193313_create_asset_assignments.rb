@@ -4,7 +4,7 @@ class CreateAssetAssignments < ActiveRecord::Migration
       t.integer :asset_id
       t.integer :link_id
       t.string :link_type
-      t.string :usecase
+      t.string :link_attr
 
       t.timestamps
     end

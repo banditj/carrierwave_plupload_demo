@@ -24,17 +24,27 @@ class AssetsController < ApplicationController
   # POST /assets
   # POST /assets.json
   def create
-    @asset = Asset.new
+    # todo : modify Asset.new that it just takes params and works with scaffold controllers
+    # virtuelle attribute die nicht in die db kommen + validations
 
-    @asset.image = params[:file]
+    asset_type = {
+        "image" => Image,
+        "video" => Video
+    }; asset_type = asset_type[params[:asset_type]]
+    raise "illegal asset_type" unless asset_type
 
-    if params[:link_type] && params[:link_id]
-      @asset.asset_assignments.build(link_id: params[:link_id], link_type:params[:link_type].capitalize, usecase:"images")
+    @asset = asset_type.new
+    @asset.file = params[:file]
+
+    if params[:link_type] && params[:link_id] && params[:link_attr]
+      @asset.asset_assignments.build(link_id: params[:link_id],
+                                     link_type:params[:link_type].capitalize,
+                                     link_attr:params[:link_attr])
     end
 
     respond_to do |format|
       if @asset.save
-        format.html { redirect_to @asset, notice: 'Asset was successfully created.' }
+        format.html { redirect_to pages_path, notice: 'Asset was successfully created.' }
         format.json { render action: 'show', status: :created, location: @asset }
       else
         format.html { render action: 'new' }

@@ -1,0 +1,13 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @dog.name
+
+%p
+  %b image:
+  = image_tag @dog.image.file.url
+
+= link_to 'Edit', edit_dog_path(@dog)
+\|
+= link_to 'Back', dogs_path

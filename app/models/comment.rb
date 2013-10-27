@@ -1,7 +1,6 @@
 class Comment < ActiveRecord::Base
+  include Assetable
 
-  has_many :asset_assignments, -> { where "usecase = 'images'" }
-  has_many :images, :as=>:link, :through => :asset_assignments
-
+  has_asset :film, type: Video
 
 end

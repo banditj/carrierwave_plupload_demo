@@ -7,6 +7,11 @@
   %b Cont:
   = @comment.cont
 
+%p
+  %b film:
+  = image_tag @comment.film.file.thumb.url
+
 = link_to 'Edit', edit_comment_path(@comment)
 \|
 = link_to 'Back', comments_path
+

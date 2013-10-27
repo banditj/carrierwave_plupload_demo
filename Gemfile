@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 
 gem "carrierwave"
+gem "mini_magick"
 gem "remotipart"
 gem "jquery-rails"
 gem "plupload-rails"

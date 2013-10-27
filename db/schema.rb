@@ -11,22 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131024193313) do
+ActiveRecord::Schema.define(version: 20131027010717) do
 
   create_table "asset_assignments", force: true do |t|
     t.integer  "asset_id"
     t.integer  "link_id"
     t.string   "link_type"
-    t.string   "usecase"
+    t.string   "link_attr"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "assets", force: true do |t|
     t.string   "name"
-    t.string   "image"
-    t.string   "gallery_image"
-    t.string   "video"
+    t.string   "file"
+    t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -34,6 +33,13 @@ ActiveRecord::Schema.define(version: 20131024193313) do
   create_table "comments", force: true do |t|
     t.string   "name"
     t.string   "cont"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "dogs", force: true do |t|
+    t.string   "name"
+    t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

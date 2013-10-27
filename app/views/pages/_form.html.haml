@@ -9,6 +9,10 @@
   .field
     = f.label :name
     = f.text_field :name
+  .field
+    = f.label :images
+    = f.file_field :images, multiple: true
+
 
   -unless @page.new_record?
     #uploader
@@ -16,7 +20,7 @@
       $(function(){
         $("#uploader").pluploadQueue({
           runtimes: 'gears,flash,silverlight,browserplus,html5',
-          url: '#{assets_path+"?link_type=page&link_id="+@page.id.to_s}',
+          url: '#{assets_path+"?link_type=page&link_id="+@page.id.to_s+"&link_attr=images&asset_type=image"}',
           multipart_params: {
             '#{request_forgery_protection_token}': '#{form_authenticity_token}',
             '#{Rails.application.config.session_options[:key]}': '#{request.session_options[:id]}'
