@@ -12,7 +12,9 @@ gem "haml-rails"
 gem "quiet_assets"
 gem "pry-rails"
 gem "require_reloader"
-gem "ub_assets" ,:path => "../ub_assets"
+
+#gem "ub_assets", :path => "../ub_assets"
+gem "ub_assets", "0.0.4"
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
