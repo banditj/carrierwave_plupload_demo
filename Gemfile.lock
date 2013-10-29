@@ -1,3 +1,9 @@
+PATH
+  remote: ../ub_assets
+  specs:
+    ub_assets (0.0.3)
+      rails (>= 3, < 5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -98,6 +104,7 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     remotipart (1.2.1)
+    require_reloader (0.1.6)
     sass (3.2.12)
     sass-rails (4.0.1)
       railties (>= 4.0.0, < 5.0)
@@ -128,8 +135,6 @@ GEM
     turbolinks (1.3.0)
       coffee-rails
     tzinfo (0.3.38)
-    ub_assets (0.0.2)
-      rails (>= 3, < 5)
     uglifier (2.2.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
@@ -149,9 +154,10 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.0.0)
   remotipart
+  require_reloader
   sass-rails (~> 4.0.0)
   sdoc
   sqlite3
   turbolinks
-  ub_assets (= 0.0.2)
+  ub_assets!
   uglifier (>= 1.3.0)

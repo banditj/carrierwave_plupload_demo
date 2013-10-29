@@ -1,0 +1,21 @@
+%p#notice= notice
+=@book.changes.to_s
+%p
+  %b Name:
+  = @book.name
+
+%p
+  %b Image:
+  -if @book.cover
+    = image_tag @book.cover.try(:file).try(:thumb).try(:url)
+  -else
+    no cover is set
+
+%p
+  %b Scanned Pages:
+  -@book.scanned_pages.each do |p|
+    =image_tag p.file.thumb.url
+
+= link_to 'Edit', edit_book_path(@book)
+\|
+= link_to 'Back', books_path

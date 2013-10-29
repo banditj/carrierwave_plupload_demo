@@ -11,7 +11,8 @@ gem "plupload-rails"
 gem "haml-rails"
 gem "quiet_assets"
 gem "pry-rails"
-gem "ub_assets" , '0.0.2' #:path => "../ub_assets"
+gem "require_reloader"
+gem "ub_assets" ,:path => "../ub_assets"
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'

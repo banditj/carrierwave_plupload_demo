@@ -1,0 +1,33 @@
+!!!
+%html
+  %head
+    %title Filesmanager
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  %body
+    %a{href: "/pages"} pages
+    |
+    %a{href: "/comments"} comments
+    |
+    %a{href: "/books"} books
+    %br/
+    %br/
+    .asset-list
+      #select-assets-button Select
+      #selected-assets
+
+      Images:
+      %br
+      - assets = Image.all
+      - assets.each do |a|
+        %div(id="asset-item-#{a.id.to_s}" class="asset-item" data-selected="false" data-id="#{a.id.to_s}" data-type="#{a.type.try(:underscore)}" title="#{a.try(:file).try(:thumb).try(:url)}")
+          =image_tag a.try(:file).try(:thumb).try(:url)
+      %br
+      Videos:
+      %br
+      - assets = Video.all
+      - assets.each do |a|
+        %div(id="asset-item-#{a.id.to_s}" class="asset-item" data-selected="false" data-id="#{a.id.to_s}" data-type="#{a.type.try(:underscore)}" title="#{a.try(:file).try(:thumb).try(:url)}")
+          =image_tag a.try(:file).try(:thumb).try(:url)
+    = yield

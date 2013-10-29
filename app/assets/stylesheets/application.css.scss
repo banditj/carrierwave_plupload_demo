@@ -1,0 +1,50 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require jquery.plupload.queue
+ *= require_self
+ *= require_tree .
+ */
+
+.asset-list {
+    background-color: greenyellow;
+    overflow-y: scroll;
+    height: 400px;
+    float:right;
+    width: 300px;
+}
+.asset-item {
+    display: inline;
+  padding: 4px;
+
+}
+
+.selected {
+  background-color:yellow;
+   margin: 4px;
+   border: 3px solid #ff5479;
+ }
+#selected-assets {
+    display: block;
+    background-color: yellow;
+    height:30px;
+    width: 100%;
+}
+#select-assets-button {
+  cursor: pointer;
+  display: block;
+  background-color: #61a8ff;
+  height:30px;
+  width: 100%;
+  text-align: middle;
+  text-shadow: #f0f0f0;
+  font-weight: bolder;
+  color: white;
+}

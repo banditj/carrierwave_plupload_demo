@@ -29,3 +29,6 @@
 
 
 //= require_tree .
+
+
+//= require assets

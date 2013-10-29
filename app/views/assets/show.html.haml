@@ -4,6 +4,9 @@
   %b Name:
   = @asset.name
 %p
+  %b type:
+  = @asset.type.to_s
+%p
   %b Image:
   = image_tag @asset.file.url
 

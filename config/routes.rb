@@ -1,5 +1,7 @@
 Filesmanager::Application.routes.draw do
 
+  resources :books
+
   resources :assets, :pages, :comments, :dogs
 
   # The priority is based upon order of creation: first created -> highest priority.
