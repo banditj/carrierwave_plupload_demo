@@ -9,7 +9,7 @@
 
 %p
   %b film:
-  = image_tag @comment.film.file.thumb.url
+  = image_tag @comment.film.try(:file).try(:thumb).try(:url)
 
 = link_to 'Edit', edit_comment_path(@comment)
 \|

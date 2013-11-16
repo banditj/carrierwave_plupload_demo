@@ -1,8 +1,12 @@
 Filesmanager::Application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'                #ignore this i  just tried this
+
+  root 'pages#index'
   resources :books
 
   resources :assets, :pages, :comments, :dogs
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
